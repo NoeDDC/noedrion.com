@@ -25,6 +25,28 @@
     setLang(next);
   });
 
+  // Light/dark theme
+  var themeSwitch = document.getElementById("themeSwitch");
+  var THEME_KEY = "nd-theme";
+
+  function setTheme(theme) {
+    if (theme === "light") {
+      root.setAttribute("data-theme", "light");
+    } else {
+      root.removeAttribute("data-theme");
+    }
+    localStorage.setItem(THEME_KEY, theme);
+  }
+
+  if (localStorage.getItem(THEME_KEY) === "light") {
+    root.setAttribute("data-theme", "light");
+  }
+
+  themeSwitch.addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    setTheme(next);
+  });
+
   // Mobile nav
   var burger = document.getElementById("navBurger");
   var navLinks = document.getElementById("navLinks");
