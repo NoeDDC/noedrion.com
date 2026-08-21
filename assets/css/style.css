@@ -486,6 +486,62 @@ html[data-lang="en"] .lang-switch__label:last-of-type {
   font-size: 1.05rem;
 }
 
+.text-link {
+  color: var(--cyan);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(34, 211, 238, 0.35);
+  text-underline-offset: 2px;
+}
+
+.text-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.entity {
+  position: relative;
+  display: inline-block;
+}
+
+.entity__tip {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 5;
+}
+
+.entity:hover .entity__tip,
+.entity:focus-within .entity__tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.entity__tip-label {
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.entity__tip a {
+  color: var(--cyan);
+}
+
+.entity__tip a:hover {
+  text-decoration: underline;
+}
+
 .areas {
   display: flex;
   flex-wrap: wrap;
@@ -582,6 +638,10 @@ html[data-lang="en"] .lang-switch__label:last-of-type {
   margin-bottom: 0.75rem;
 }
 
+.tcard__company a:hover {
+  text-decoration: underline;
+}
+
 .tcard p:not(.tcard__period):not(.tcard__company) {
   color: var(--text-dim);
   font-size: 0.95rem;
@@ -602,6 +662,66 @@ html[data-lang="en"] .lang-switch__label:last-of-type {
   background: rgba(167, 139, 250, 0.1);
   color: var(--violet);
   font-weight: 600;
+}
+
+.tcard__example {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.tcard__example summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cyan);
+}
+
+.tcard__example summary::-webkit-details-marker {
+  display: none;
+}
+
+.tcard__example summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+.tcard__example[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.tcard__example summary:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.tcard__example-body {
+  margin-top: 0.9rem;
+}
+
+.tcard__example-body p + p {
+  margin-top: 0.5rem;
+}
+
+.tcard__example-link a {
+  color: var(--cyan);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tcard__example-link a:hover {
+  text-decoration: underline;
 }
 
 /* ---------- Skills ---------- */
@@ -625,7 +745,7 @@ html[data-lang="en"] .lang-switch__label:last-of-type {
   gap: 0.6rem;
 }
 
-.tag-cloud span {
+.tag-cloud > span {
   padding: 0.5rem 1rem;
   border-radius: 10px;
   background: var(--bg-elevated);
@@ -634,7 +754,7 @@ html[data-lang="en"] .lang-switch__label:last-of-type {
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
-.tag-cloud span:hover {
+.tag-cloud > span:hover {
   transform: translateY(-3px);
   border-color: var(--cyan);
   background: rgba(34, 211, 238, 0.08);

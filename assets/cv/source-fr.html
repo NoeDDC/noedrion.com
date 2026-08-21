@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Noé Drion · CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 11mm 16mm;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :root {
+    --ink: #14161f;
+    --ink-dim: #565d75;
+    --ink-faint: #8991ab;
+    --accent: #0c8599;
+    --accent-soft: #e3f6f9;
+    --violet: #6d4fd6;
+    --violet-soft: #ede9fc;
+    --border: #e3e6f0;
+    --bg-soft: #f6f7fb;
+  }
+
+  html, body {
+    font-family: "Inter", Arial, sans-serif;
+    color: var(--ink);
+    font-size: 9.8pt;
+    line-height: 1.34;
+  }
+
+  h1, h2, h3 {
+    font-family: "Space Grotesk", "Inter", Arial, sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .page {
+    width: 100%;
+  }
+
+  /* ---------- Header ---------- */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 8px;
+    border-bottom: 2.5px solid var(--ink);
+    margin-bottom: 11px;
+  }
+
+  .header__name {
+    font-size: 23pt;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .header__role {
+    font-size: 11.5pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+
+  .header__contact {
+    text-align: right;
+    font-size: 8.6pt;
+    color: var(--ink-dim);
+    line-height: 1.55;
+  }
+
+  .header__contact a:hover {
+    text-decoration: underline;
+  }
+
+  .header__contact .sep {
+    color: var(--ink-faint);
+  }
+
+  /* ---------- Sections ---------- */
+  section {
+    margin-bottom: 7px;
+  }
+
+  .section__title {
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding-left: 10px;
+    border-left: 4px solid var(--accent);
+    margin-top: 10px;
+    margin-bottom: 6px;
+  }
+
+  .summary {
+    font-size: 9.8pt;
+    color: var(--ink-dim);
+    max-width: 100%;
+  }
+
+  .summary strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---------- Experience ---------- */
+  .exp-item {
+    margin-bottom: 5px;
+    page-break-inside: avoid;
+  }
+
+  .exp-item__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .exp-item__title {
+    font-size: 10.6pt;
+    font-weight: 700;
+  }
+
+  .exp-item__period {
+    font-size: 8.8pt;
+    font-weight: 600;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  .exp-item__company {
+    font-size: 9.4pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 1px;
+    margin-bottom: 2px;
+  }
+
+  .exp-item__company a {
+    color: var(--accent);
+  }
+
+  .exp-item__desc {
+    color: var(--ink-dim);
+    font-size: 9.8pt;
+  }
+
+  .exp-item__tools {
+    margin-top: 3px;
+    font-size: 8.4pt;
+    color: var(--ink-faint);
+  }
+
+  .exp-item__tools span {
+    display: inline-block;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1px 6px;
+    margin-right: 4px;
+    color: var(--ink-dim);
+    font-weight: 600;
+  }
+
+  /* ---------- Projects ---------- */
+  .project {
+    page-break-inside: avoid;
+  }
+
+  .project__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .project__title {
+    font-size: 10.6pt;
+    font-weight: 700;
+  }
+
+  .project__title a {
+    color: var(--violet);
+  }
+
+  .project__period {
+    font-size: 8.8pt;
+    font-weight: 600;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  .project__desc {
+    color: var(--ink-dim);
+    font-size: 9.8pt;
+    margin-top: 3px;
+  }
+
+  .project__tools {
+    margin-top: 4px;
+  }
+
+  .project__tools span {
+    display: inline-block;
+    background: var(--violet-soft);
+    border: 1px solid #ded4fb;
+    border-radius: 5px;
+    padding: 1px 6px;
+    margin-right: 4px;
+    color: var(--violet);
+    font-size: 8.4pt;
+    font-weight: 600;
+  }
+
+  /* ---------- Two-column lower area (skills / education) ---------- */
+  .lower {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 22px;
+    page-break-inside: avoid;
+  }
+
+  .lower__col {
+    min-width: 0;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 7px;
+  }
+
+  .tag-row span {
+    display: inline-block;
+    background: var(--accent-soft);
+    border: 1px solid #c9ecf1;
+    border-radius: 5px;
+    padding: 2.5px 8px;
+    font-size: 8.6pt;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .plain-list {
+    list-style: none;
+  }
+
+  .plain-list li {
+    font-size: 9pt;
+    color: var(--ink-dim);
+    margin-bottom: 4px;
+  }
+
+  .plain-list .label {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .edu-item {
+    margin-bottom: 5px;
+  }
+
+  .edu-item__period {
+    font-size: 8.6pt;
+    font-weight: 600;
+    color: var(--ink-faint);
+  }
+
+  .edu-item__title {
+    font-size: 9.8pt;
+    font-weight: 700;
+  }
+
+  .edu-item__school {
+    font-size: 9.2pt;
+    color: var(--ink-dim);
+  }
+
+  .cert-item {
+    font-size: 9pt;
+    color: var(--ink-dim);
+    margin-bottom: 3px;
+  }
+
+  .cert-item .cert-year {
+    color: var(--ink-faint);
+    font-size: 8.6pt;
+  }
+
+  .areas-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .areas-row span {
+    display: inline-block;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2.5px 10px;
+    font-size: 8.6pt;
+    font-weight: 600;
+    color: var(--ink-dim);
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="header__name">Noé Drion</div>
+      <div class="header__role">Consultant Data Insight</div>
+    </div>
+    <div class="header__contact">
+      <div><a href="mailto:noe_drion@yahoo.fr">noe_drion@yahoo.fr</a> <span class="sep">·</span> <a href="tel:+32470309551">+32 470 30 95 51</a></div>
+      <div><a href="https://www.linkedin.com/in/noedrion/">linkedin.com/in/noedrion</a> <span class="sep">·</span> <a href="https://noedrion.com">noedrion.com</a></div>
+      <div>Gembloux, Belgique <span class="sep">·</span> Permis B</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="summary">
+      Consultant BI chez <strong>Beyond Data Group</strong> (Select Advisory) depuis 2025, j'ai une approche
+      flexible et concrète de la donnée : migrations BI, modélisation de données dans TimeXtender ou Talend,
+      dashboards interactifs dans Power BI, Qlik Sense et Looker Studio. J'utilise aussi Microsoft Fabric, les
+      API REST, Python et le machine learning pour transformer des données complexes et multi-sources en
+      informations claires et exploitables. J'aime apprendre vite et m'adapter à chaque contexte, pour livrer
+      des solutions qui collent vraiment aux besoins du métier.
+    </div>
+  </section>
+
+  <section class="lower">
+    <div class="lower__col">
+      <div class="section__title">Compétences</div>
+      <div class="tag-row">
+        <span>Power BI</span><span>Microsoft Fabric</span><span>TimeXtender</span>
+        <span>Qlik Sense</span><span>Talend</span><span>Looker Studio</span>
+        <span>Python</span><span>SQL</span><span>DAX</span><span>Git</span>
+        <span>VS Code</span><span>SSMS</span><span>SQL Server</span>
+      </div>
+      <ul class="plain-list">
+        <li><span class="label">Savoir-être :</span> Adaptabilité, esprit d'analyse, esprit critique, résolution de problèmes, communication</li>
+        <li><span class="label">Langues :</span> Français (natif), Anglais (courant)</li>
+      </ul>
+    </div>
+
+    <div class="lower__col">
+      <div class="section__title">Formation</div>
+      <div class="edu-item">
+        <div class="edu-item__period">2023 – 2025</div>
+        <div class="edu-item__title">Master en Business Analytics</div>
+        <div class="edu-item__school">UCL FUCaM Mons</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-item__period">2020 – 2023</div>
+        <div class="edu-item__title">Bachelier en Ingénierie de gestion</div>
+        <div class="edu-item__school">UCL FUCaM Mons</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-item__period">2020 – 2023</div>
+        <div class="edu-item__title">Bachelier en Ingénierie industrielle</div>
+        <div class="edu-item__school">HELHA Mons</div>
+      </div>
+
+      <div class="section__title">Certifications</div>
+      <div class="cert-item">Qlik Sense Data Architect <span class="cert-year">(2026)</span></div>
+      <div class="cert-item">TimeXtender TX-200 <span class="cert-year">(2026)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section__title">Projets personnels</div>
+    <div class="project">
+      <div class="project__row">
+        <div class="project__title">ORAPACE <a href="https://orapace.app">· orapace.app</a></div>
+        <div class="project__period">Depuis 2026</div>
+      </div>
+      <div class="project__desc">
+        Une web app (PWA) pour coureurs et traileurs : tableau de bord d'entraînement (synchronisation
+        Garmin/Coros), messagerie, communauté (chat, classements, capture de territoire) et suivi en direct
+        des courses, développée avec Claude Code et hébergée sur Render avec une base de données Neon. Je
+        développe aussi d'autres applications du quotidien de la même façon (rester en contact avec mes
+        proches, suivi de journée).
+      </div>
+      <div class="project__tools"><span>Claude Code</span><span>PWA</span><span>Neon</span><span>Render</span><span>VS Code</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section__title">Expérience</div>
+
+    <div class="exp-item">
+      <div class="exp-item__row">
+        <div class="exp-item__title">Consultant Intégration de données</div>
+        <div class="exp-item__period">Depuis 02/2026</div>
+      </div>
+      <div class="exp-item__company">Toyota Motor Europe (via <a href="https://www.beyond-data.group/">Beyond Data Group</a>)</div>
+      <div class="exp-item__desc">Contribution à un projet d'intégration de données pour Toyota Motor Europe : développement de flux ETL dans Talend, avec planification des exécutions et logging, pour garantir la fiabilité, la traçabilité et le suivi des traitements.</div>
+      <div class="exp-item__tools"><span>Talend</span><span>ETL</span></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-item__row">
+        <div class="exp-item__title">Consultant BI · Migration Qlik vers TimeXtender</div>
+        <div class="exp-item__period">Depuis 11/2025</div>
+      </div>
+      <div class="exp-item__company">Brussels Formation (via <a href="https://www.beyond-data.group/">Beyond Data Group</a>)</div>
+      <div class="exp-item__desc">Migration de l'environnement analytique de Brussels Formation, de Qlik vers TimeXtender, avec gestion de l'historisation des données. Le principal enjeu : alimenter les rapports Qlik existants avec les bonnes versions historiques, pour une transition sans rupture pour les utilisateurs.</div>
+      <div class="exp-item__tools"><span>TimeXtender</span><span>Qlik Sense</span><span>SSMS</span><span>SQL Server</span></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-item__row">
+        <div class="exp-item__title">Consultant BI · Suivi des tickets Jira</div>
+        <div class="exp-item__period">10/2025 – 01/2026</div>
+      </div>
+      <div class="exp-item__company">Brussels Fiscalité (via <a href="https://www.beyond-data.group/">Beyond Data Group</a>)</div>
+      <div class="exp-item__desc">Rapport d'analyse des tickets Jira pour Brussels Fiscalité, alimenté via les API REST de Qlik Sense. Appels API adaptés lors de la migration de Jira vers sa nouvelle architecture, pour garantir la continuité du suivi des équipes support.</div>
+      <div class="exp-item__tools"><span>Qlik Sense</span><span>REST API</span></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-item__row">
+        <div class="exp-item__title">Consultant BI · FAQ bilingue</div>
+        <div class="exp-item__period">09/2025 – 11/2025</div>
+      </div>
+      <div class="exp-item__company">Brussels Fiscalité (via <a href="https://www.beyond-data.group/">Beyond Data Group</a>)</div>
+      <div class="exp-item__desc">Application FAQ bilingue (FR/NL) pour Brussels Fiscalité : rapport Qlik Sense intégrant le writeback Vizzlib, pour permettre aux équipes de consulter et mettre à jour le contenu directement depuis l'interface.</div>
+      <div class="exp-item__tools"><span>Qlik Sense</span><span>Vizzlib</span></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-item__row">
+        <div class="exp-item__title">Stage · Consultant Data Insight</div>
+        <div class="exp-item__period">01/2025 – 06/2025</div>
+      </div>
+      <div class="exp-item__company">Pairi Daiza (via <a href="https://www.beyond-data.group/">Beyond Data Group</a>)</div>
+      <div class="exp-item__desc">Développement d'un algorithme prédictif des flux de visiteurs et d'optimisation de la gestion des foules pour Pairi Daiza, à partir de données croisées dans Microsoft Fabric et d'API externes. Plusieurs modèles de machine learning testés, puis restitués dans des rapports Power BI pour anticiper les pics d'affluence et améliorer l'allocation des ressources.</div>
+      <div class="exp-item__tools"><span>Power BI</span><span>Fabric</span><span>Python</span><span>ML</span></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-item__row">
+        <div class="exp-item__title">Stage · Data Visualisation</div>
+        <div class="exp-item__period">01/2022 – 03/2022</div>
+      </div>
+      <div class="exp-item__company">Icare</div>
+      <div class="exp-item__desc">Nettoyage et transformation de données RH, puis création de rapports Looker Studio sur le bien-être des employés, pour aider la direction à identifier des pistes d'amélioration du climat social.</div>
+      <div class="exp-item__tools"><span>Looker Studio</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section__title">Secteurs d'expertise</div>
+    <div class="areas-row">
+      <span>Finance</span><span>Secteur public</span><span>Santé</span><span>Sport</span><span>Industrie</span>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
