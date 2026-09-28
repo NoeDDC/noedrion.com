@@ -118,6 +118,63 @@
     font-weight: 600;
   }
 
+  /* ---------- Dual-activity banner ---------- */
+  .dual {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-soft);
+    page-break-inside: avoid;
+  }
+
+  .dual__divider {
+    width: 1px;
+    align-self: stretch;
+    background: var(--border);
+  }
+
+  .dual__kicker {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    font-size: 7.4pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .dual__col--employed .dual__kicker {
+    color: var(--accent);
+  }
+
+  .dual__col--indep .dual__kicker {
+    color: var(--violet);
+  }
+
+  .dual__title {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 10.2pt;
+    margin-top: 2px;
+  }
+
+  .dual__sub {
+    font-size: 8.4pt;
+    color: var(--ink-dim);
+    margin-top: 1px;
+  }
+
+  .dual__sub a {
+    color: inherit;
+  }
+
+  .dual__col--indep {
+    text-align: right;
+  }
+
   /* ---------- Experience ---------- */
   .exp-item {
     margin-bottom: 5px;
@@ -196,6 +253,14 @@
 
   .project__title a {
     color: var(--violet);
+  }
+
+  .project__role {
+    font-size: 9.4pt;
+    font-weight: 600;
+    color: var(--violet);
+    margin-top: 1px;
+    margin-bottom: 2px;
   }
 
   .project__period {
@@ -346,6 +411,20 @@
       informations claires et exploitables. J'aime apprendre vite et m'adapter à chaque contexte, pour livrer
       des solutions qui collent vraiment aux besoins du métier.
     </div>
+
+    <div class="dual">
+      <div class="dual__col dual__col--employed">
+        <div class="dual__kicker">Salarié</div>
+        <div class="dual__title">Consultant BI</div>
+        <div class="dual__sub">Beyond Data Group · depuis 2025</div>
+      </div>
+      <div class="dual__divider" aria-hidden="true"></div>
+      <div class="dual__col dual__col--indep">
+        <div class="dual__kicker">Indépendant complémentaire</div>
+        <div class="dual__title">Fondateur, ORAPACE</div>
+        <div class="dual__sub"><a href="https://orapace.app">orapace.app</a> · depuis 04/2026</div>
+      </div>
+    </div>
   </section>
 
   <section class="lower">
@@ -353,7 +432,7 @@
       <div class="section__title">Compétences</div>
       <div class="tag-row">
         <span>Power BI</span><span>Microsoft Fabric</span><span>TimeXtender</span>
-        <span>Qlik Sense</span><span>Talend</span><span>Looker Studio</span>
+        <span>Qlik Sense</span><span>Qlik Cloud</span><span>Talend</span><span>Looker Studio</span>
         <span>Python</span><span>SQL</span><span>DAX</span><span>Git</span>
         <span>VS Code</span><span>SSMS</span><span>SQL Server</span>
       </div>
@@ -388,25 +467,34 @@
   </section>
 
   <section>
-    <div class="section__title">Projets personnels</div>
+    <div class="section__title">Activité indépendante</div>
     <div class="project">
       <div class="project__row">
         <div class="project__title">ORAPACE <a href="https://orapace.app">· orapace.app</a></div>
-        <div class="project__period">Depuis 2026</div>
+        <div class="project__period">Depuis 04/2026</div>
       </div>
+      <div class="project__role">Fondateur · Indépendant complémentaire</div>
       <div class="project__desc">
-        Une web app (PWA) pour coureurs et traileurs : tableau de bord d'entraînement (synchronisation
-        Garmin/Coros), messagerie, communauté (chat, classements, capture de territoire) et suivi en direct
-        des courses, développée avec Claude Code et hébergée sur Render avec une base de données Neon. Je
-        développe aussi d'autres applications du quotidien de la même façon (rester en contact avec mes
-        proches, suivi de journée).
+        Application native iOS et Android pour les clubs de course à pied, conçue et développée en autonomie
+        avec Claude Code. Synchronisation automatique des sorties, plans d'entraînement, suivi de charge et
+        de forme, messagerie de club et jeu de territoire, déployée club par club sur invitation.
       </div>
-      <div class="project__tools"><span>Claude Code</span><span>PWA</span><span>Neon</span><span>Render</span><span>VS Code</span></div>
+      <div class="project__tools"><span>iOS</span><span>Android</span><span>Capacitor</span><span>Claude Code</span><span>Neon</span></div>
     </div>
   </section>
 
   <section>
     <div class="section__title">Expérience</div>
+
+    <div class="exp-item">
+      <div class="exp-item__row">
+        <div class="exp-item__title">Consultant BI · Planification des ventes</div>
+        <div class="exp-item__period">Depuis 09/2026</div>
+      </div>
+      <div class="exp-item__company">Luxlait (via <a href="https://www.beyond-data.group/">Beyond Data Group</a>)</div>
+      <div class="exp-item__desc">Modèle de données et application Qlik Cloud pour la planification des ventes de Luxlait. Grâce à des objets FilPlanA, les commerciaux encodent directement leurs prévisions de vente pour l'année suivante, sur base de l'historique.</div>
+      <div class="exp-item__tools"><span>Qlik Cloud</span><span>FilPlanA</span></div>
+    </div>
 
     <div class="exp-item">
       <div class="exp-item__row">

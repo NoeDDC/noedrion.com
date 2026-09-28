@@ -118,6 +118,63 @@
     font-weight: 600;
   }
 
+  /* ---------- Dual-activity banner ---------- */
+  .dual {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-soft);
+    page-break-inside: avoid;
+  }
+
+  .dual__divider {
+    width: 1px;
+    align-self: stretch;
+    background: var(--border);
+  }
+
+  .dual__kicker {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    font-size: 7.4pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .dual__col--employed .dual__kicker {
+    color: var(--accent);
+  }
+
+  .dual__col--indep .dual__kicker {
+    color: var(--violet);
+  }
+
+  .dual__title {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 10.2pt;
+    margin-top: 2px;
+  }
+
+  .dual__sub {
+    font-size: 8.4pt;
+    color: var(--ink-dim);
+    margin-top: 1px;
+  }
+
+  .dual__sub a {
+    color: inherit;
+  }
+
+  .dual__col--indep {
+    text-align: right;
+  }
+
   /* ---------- Experience ---------- */
   .exp-item {
     margin-bottom: 5px;
@@ -196,6 +253,14 @@
 
   .project__title a {
     color: var(--violet);
+  }
+
+  .project__role {
+    font-size: 9.4pt;
+    font-weight: 600;
+    color: var(--violet);
+    margin-top: 1px;
+    margin-bottom: 2px;
   }
 
   .project__period {
@@ -345,6 +410,20 @@
       Python and machine learning, turning complex, multi-source data into clear, actionable insights.
       Learns fast and adapts to any context to deliver solutions that truly fit business needs.
     </div>
+
+    <div class="dual">
+      <div class="dual__col dual__col--employed">
+        <div class="dual__kicker">Employed</div>
+        <div class="dual__title">BI Consultant</div>
+        <div class="dual__sub">Beyond Data Group · since 2025</div>
+      </div>
+      <div class="dual__divider" aria-hidden="true"></div>
+      <div class="dual__col dual__col--indep">
+        <div class="dual__kicker">Self-employed, secondary activity</div>
+        <div class="dual__title">Founder, ORAPACE</div>
+        <div class="dual__sub"><a href="https://orapace.app">orapace.app</a> · since 04/2026</div>
+      </div>
+    </div>
   </section>
 
   <section class="lower">
@@ -352,7 +431,7 @@
       <div class="section__title">Skills</div>
       <div class="tag-row">
         <span>Power BI</span><span>Microsoft Fabric</span><span>TimeXtender</span>
-        <span>Qlik Sense</span><span>Talend</span><span>Looker Studio</span>
+        <span>Qlik Sense</span><span>Qlik Cloud</span><span>Talend</span><span>Looker Studio</span>
         <span>Python</span><span>SQL</span><span>DAX</span><span>Git</span>
         <span>VS Code</span><span>SSMS</span><span>SQL Server</span>
       </div>
@@ -387,24 +466,34 @@
   </section>
 
   <section>
-    <div class="section__title">Personal Projects</div>
+    <div class="section__title">Independent Activity</div>
     <div class="project">
       <div class="project__row">
         <div class="project__title">ORAPACE <a href="https://orapace.app">· orapace.app</a></div>
-        <div class="project__period">Since 2026</div>
+        <div class="project__period">Since 04/2026</div>
       </div>
+      <div class="project__role">Founder · Self-employed, secondary activity</div>
       <div class="project__desc">
-        A web app (PWA) for runners and trail runners: training dashboard (Garmin/Coros sync), messaging,
-        community features (chat, leaderboards, territory capture) and live race tracking, built with Claude Code
-        and hosted on Render with a Neon database. Also building other everyday apps the same way (staying in
-        touch with family and friends, day tracking).
+        Native iOS and Android app for running clubs, designed and built independently with Claude Code.
+        Automatic activity sync, training plans, load and form tracking, club messaging and a territory game,
+        rolled out club by club, by invitation.
       </div>
-      <div class="project__tools"><span>Claude Code</span><span>PWA</span><span>Neon</span><span>Render</span><span>VS Code</span></div>
+      <div class="project__tools"><span>iOS</span><span>Android</span><span>Capacitor</span><span>Claude Code</span><span>Neon</span></div>
     </div>
   </section>
 
   <section>
     <div class="section__title">Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-item__row">
+        <div class="exp-item__title">BI Consultant · Sales Planning</div>
+        <div class="exp-item__period">Since 09/2026</div>
+      </div>
+      <div class="exp-item__company">Luxlait (via <a href="https://www.beyond-data.group/">Beyond Data Group</a>)</div>
+      <div class="exp-item__desc">Data model and Qlik Cloud application for Luxlait's sales planning. With FilPlanA objects, sales reps enter next year's sales forecasts directly, based on historical data.</div>
+      <div class="exp-item__tools"><span>Qlik Cloud</span><span>FilPlanA</span></div>
+    </div>
 
     <div class="exp-item">
       <div class="exp-item__row">
